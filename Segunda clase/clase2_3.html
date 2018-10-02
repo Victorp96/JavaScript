@@ -9,7 +9,11 @@
 		var nombre = prompt("Escriba su nombre:");
 		var nota1 = parseInt(prompt("Introduzca la nota 1:"));
 		var nota2 = parseFloat(prompt("Introduzca la nota 2:")); //convertir la variable nota2 (string) a numero flotante
-
+		var sexo=confirm("Es hombre?");
+		if (sexo) //tiene implicito si es true
+			alert("Es hombre");
+		else
+			alert("Es mujer");
 		//nota1=parseInt(nota1) //convertir la variable nota1 (string) a numero
 		//Ojo. solo convertir la variable una sola vez
 		if (isNaN(nota1) || isNaN(nota2))
