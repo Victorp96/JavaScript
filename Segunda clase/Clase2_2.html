@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Clase2_2</title>
+</head>
+<body>
+	Antes del script con prompt<br>
+	<script type="text/javascript">
+		var nombre = prompt("Diga su nombre:");
+		console.log(nombre)
+		//Si el usuario hace click en el boton cancelar,
+		//prompt retorna null
+		//Si el usuario hace click en el boton 
+		//aceptar sin escribir nada, prompt retorna una cadena vacia
+		if (nombre==null || nombre =="")
+			alert("Debe escribir un valor y aceptar");
+		else
+			if (isNaN(nombre))
+				alert("No es un numero");
+			else
+				alert("Es un numero");
+	</script>
+	Luego del script
+</body>
+</html>
