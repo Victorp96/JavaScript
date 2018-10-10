@@ -1,0 +1,346 @@
+/*Un banco permite a sus clientes a travÃ©s de una app mÃ³vil conocer los saldos de sus instrumentos bancarios, cada cliente puede tener una cuenta 
+bancaria y una tarjeta de crÃ©dito. Para ingresar a la app el sistema valida su nombre de usuario y contraseÃ±a, al ingresar  puede visualizar el saldo 
+disponible de la cuenta bancaria y el saldo disponible y deudor de la tarjeta de crÃ©dito.
+DiseÃ±e un algoritmo en pseudocodigo que valide usuario y contraseÃ±a de un cliente y permita ver los saldos de sus instrumentos bancarios
+
+1.- Defina las clases cliente, cuenta bancaria y tarjeta de crÃ©dito, con los atributos correspondientes asignando tipo de dato adecuado y modificador 
+de acceso privado
+
+2.- Defina los mÃ©todos constructor por defecto y con parÃ¡metros para cada una de las clases
+
+3.- Defina el mÃ©todo sobrecargado para la clase cliente (registra una cuenta bancaria o una tarjeta de crÃ©dito) considerando la diferencia de atributos 
+	entre cuenta bancaria y tarjeta de crÃ©dito. Defina ademÃ¡s el mÃ©todo mostrar datos
+
+4.- Desde el cuerpo principal defina e instancie los objetos, asigne valores del cliente y ejecute el mÃ©todo registrar instrumento bancario
+
+5.- Desde el cuerpo principal lea las entradas para iniciar sesiÃ³n y valide el usuario y contraseÃ±a, si son correctos muestre la informaciÃ³n de la 
+	cuenta y tarjeta de crÃ©dito*/
+
+
+// ----------------------------------------------------------CLASE CUENTA BANCARIA----------------------------------------------------------
+clase CuentaBancaria
+	Privado Definir tipo_cuenta Como Caracter
+	Privado Definir numero_cuenta Como Numerico
+	Privado Definir saldo_cuenta Como Numerico
+
+	//Metodos Get
+	Publico metodo GetTipoCuenta() Como Caracter
+		return tipo_cuenta
+	Fin metodo
+	Publico metodo GetNumeroCuenta() Como Numerico
+		return numero_cuenta
+	Fin metodo
+	Publico metodo GetSaldoCuenta() Como Numerico
+		return saldo_cuenta
+	Fin metodo
+
+	//Metodos Set
+	Publico metodo SetTipoCuenta(n_tipo Como Caracter)
+		tipo_cuenta= n_tipo
+	Fin metodo
+	Publico metodo SetNumeroCuenta(n_cuenta Como Numerico)
+		numero_cuenta= n_cuenta
+	Fin metodo
+	Publico metodo SetSaldo(n_saldo Como Numerico)
+		saldo_cuenta= n_saldo
+	Fin metodo
+
+
+	Publico metodo CuentaBancaria() /*Constructor Por Defecto*/
+		tipo_cuenta = "Corriente"
+		numero_cuenta = 01341000300003001352
+		saldo_cuenta = 200000
+	Fin metodo
+
+	Publico metodo CuentaBancaria(tc, nc, sc) /*Constructor Por Parameteros*/
+		tipo_cuenta = tc
+		numero_cuenta = nc
+		saldo_cuenta = sc
+	Fin metodo
+
+Fin clase
+
+
+// ----------------------------------------------------------CLASE TARJETA DE CREDITO----------------------------------------------------------
+clase TarjetaDeCredito
+	Privado Definir tipo_tarjeta Como Caracter
+	Privado Definir numero_tarjeta Como Numerico
+	Privado Definir saldo_disponible Como Numerico
+	Privado Definir saldo_deudor Como Numerico
+
+	//Metodos Get
+	Publico metodo GetTipoTarjeta() Como Caracter
+		return tipo_tarjeta
+	Fin metodo
+	Publico metodo GetNumeroTarjeta() Como Numerico
+		return numero_tarjeta
+	Fin metodo
+	Publico metodo GetSaldoDisponible() Como Numerico
+		return saldo_disponible
+	Fin metodo
+	Publico metodo GetSaldoDeudor() Como Numerico
+		return saldo_deudor
+	Fin metodo
+
+	//Metodos Set
+	Publico metodo SetTipoTarjeta(n_tipo_t Como Caracter)
+		tipo_tarjeta= n_tipo_t
+	Fin metodo
+	Publico metodo SetNumeroTarjeta(n_numero_t Como Numerico)
+		numero_tarjeta= n_numero_t
+	Fin metodo
+	Publico metodo SetSaldoDisponible(n_disponible_t Como Numerico)
+		saldo_disponible= n_disponible_t
+	Fin metodo
+	Publico metodo SetSaldoDeudor(n_deuda_t Como Numerico)
+		saldo_deudor= n_deuda_t
+	Fin metodo
+
+	Publico metodo TarjetaDeCredito()  /*Constructor Por Defecto*/
+		tipo_tarjeta = "Sin Tipo"
+		numero_tarjeta = 0
+		saldo_disponible = 0
+		saldo_deudor = 0
+
+	Fin metodo
+
+	Publico metodo TarjetaDeCredito(tp_tj, nro_tj, s_disp, s_deud) /*Constructor Por Parameteros*/
+		tipo_tarjeta = tp_tj
+		numero_tarjeta = nro_tj
+		saldo_disponible = s_disp
+		saldo_deudor = s_deud
+	Fin metodo
+
+Fin clase
+
+,
+// ----------------------------------------------------------CLASE CLIENTE----------------------------------------------------------
+clase Cliente
+	Privado Definir usuario Como Caracter
+	Privado Definir contraceÃ±a Como Caracter
+	Privado Definir nombre Como Caracter
+	Privado Definir apellido Como Caracter
+	Privado Definir cedula Como Numerico
+	Privado Definir direccion Como Direccion
+	Privado Definir telefono Como Caracter
+
+	Definir cuenta_cliente Como CuentaBancaria
+	Definir tarjeta_cliente Como TarjetaDeCredito
+
+
+	//Metodos Get
+	Publico metodo GetUsuario() Como Caracter
+		return usuario
+	Fin metodo
+		Publico metodo GetContraceÃ±a() Como Caracter
+		return contraceÃ±a
+	Fin metodo
+	Publico metodo GetNombre() Como Caracter
+		return nombre
+	Fin metodo
+	Publico metodo GetApellido() Como Caracter
+		return apellido
+	Fin metodo
+	Publico metodo GetCedula() Como Numerico
+		return cedula
+	Fin metodo
+	Publico metodo GetDireccion() Como Caracter
+		return direccion
+	Fin metodo
+	Publico metodo GetTelefono() Como Caracter
+		return telefono
+	Fin metodo
+
+	//Metodos Set
+	Publico metodo SetUsuario(n_usuario Como Caracter)
+		usuario= n_usuario
+	Fin metodo
+	Publico metodo SetContraceÃ±a(n_contraceÃ±a Como Caracter)
+		contraceÃ±a= n_contraceÃ±a
+	Fin metodo
+		Publico metodo SetNombre(n_nombre Como Caracter)
+		nombre= n_nombre
+	Fin metodo
+	Publico metodo SetApellido(n_apellido Como Caracter)
+		apellido= n_apellido
+	Fin metodo
+	Publico metodo SetCedula(n_cedula Como Caracter)
+		cedula= n_cedula
+	Fin metodo
+	Publico metodo SetDireccion(n_direccion Como Caracter)
+		direccion= n_direccion
+	Fin metodo
+	Publico metodo SetTelefono(n_telf Como Caracter)
+		telefono= n_telf
+	Fin metodo
+
+
+	Publico metodo registrar_cliente()
+		Mostrar"Ingrese Usuario: "
+		Leer usu
+		SetUsuario(usu)
+		Mostrar"Ingrese ContraceÃ±a: "
+		Leer clave
+		SetContraceÃ±a(clave)
+		Mostrar"Ingrese Nombre: "
+		Leer nomb
+		SetNombre(nomb)
+		Mostrar"Ingrese Apellido: "
+		Leer apell
+		SetApellido(apell)
+		Mostrar"Ingrese Cedula: "
+		Leer cedu
+		SetCedula(cedu)
+		Mostrar"Ingrese Direccion: "
+		Leer dir
+		SetDireccion(dir)
+		Mostrar"Ingrese Telefono: "
+		Leer telf
+		SetTelefono(telf)
+	Fin metodo
+
+	Publico metodo Cliente()  /*Constructor Por Defecto*/
+		usuario= "no definido"
+		contraceÃ±a= "no definido"
+		nombre = "no definido"
+		apellido = "no definido"
+		cedula = 0
+		direccion = "no definido"
+		telefono = "no definido"
+	Fin metodo
+
+	Publico metodo Cliente(u,pass,n,a,ci,d,t)  /*Constructor Por Parameteros*/
+		usuario= u
+		contraceÃ±a= pass
+		nombre= n
+		apellido= a
+		cedula= ci
+		direccion= d
+		telefono= t
+	Fin metodo
+ 
+	Publico metodo registrar_instrumento_bancario()//Metodo Sobrecargado sin parametros para registrar cuenta y tarjeta
+		t_c= "Ahorros"
+		SetTipoCuenta(t_c)
+
+		n_c= 01346764327602133444
+		SetNumeroCuenta(n_c)
+
+		s_c= 1350700
+		SetSaldo(s_c)
+
+		t_t= "VISA"
+		SetTipoTarjeta(t_t)
+
+		n_t= 5440776622113241
+		SetNumeroTarjeta(n_t)
+
+		sal_dis_t= 7800
+		SetSaldoDisponible(sal_dis_t)
+
+		sal_deu_t= 8200
+		SetSaldoDeudor(sal_deu_t)
+	Fin metodo
+
+	Publico metodo registrar_instrumento_bancario(tipo, num, sal)//Metodo Sobrecargado 3 parametros para registrar solo cuenta
+		cuenta_cliente.tipo_cuenta= tipo
+		SetTipoCuenta(cuenta_cliente.tipo_cuenta)
+
+		cuenta_cliente.numero_cuenta= num
+		SetNumeroCuenta(cuenta_cliente.numero_cuenta)
+
+		cuenta_cliente.saldo_cuenta= sal
+		SetSaldo(cuenta_cliente.saldo_cuenta)
+	Fin metodo
+
+	Publico metodo registrar_instrumento_bancario(tipo_t, nt, dis_t, deu_t)//Metodo Sobrecargado para registrar solo tarjeta
+		tarjeta_cliente.tipo_tarjeta= tipo_t
+		SetTipoTarjeta(tarjeta_cliente.tipo_tarjeta)
+
+		tarjeta_cliente.numero_tarjeta= nt
+		SetNumeroTarjeta(tarjeta_cliente.numero_tarjeta)
+
+		tarjeta_cliente.saldo_disponible= dis_t
+		SetSaldoDisponible(tarjeta_cliente.saldo_disponible)
+
+		tarjeta_cliente.saldo_deudor= deu_t
+		SetSaldoDeudor(tarjeta_cliente.saldo_deudor)
+	Fin metodo
+
+
+	Publico metodo mostrar_datos()
+		Mostrar "Bienvenido: " GetNombre() + " " + GetApellido()
+		Mostrar "Su Cedula Es: " GetCedula
+		Mostrar "Su Direccion de Domiciliacion Es: " GetDireccion()
+		Mostrar "Su Telefono de Contacto Es: " GetTelefono()
+		Mostror "Su Cuenta " + GetTipoCuenta() + " Numero: " + GetNumeroCuenta()
+		Mostrar "Tiene un Saldo Disponible de: " GetSaldoCuenta()
+		Mostror "Su Tarjeta " + GetTipoTarjeta() + " Numero: " + GetNumeroTarjeta()
+		Mostrar "Tiene un Saldo Disponible de: " + GetSaldoDisponible()
+		Mostrar "Tiene un Saldo Deudor de: " + GetSaldoDeudor()
+	Fin metodo
+Fin clase
+
+
+
+//------------------------------------------CUERPO PRINCIPAL------------------------------------------//
+algoritmo
+	Definir luis Como Cliente
+	Definir jorge Como Cliente
+	Definir validar_usuario Como Caracter
+	Definir validar_contraceÃ±a Como Caracter
+	Definir dato_errado Como Logico
+
+
+	luis = nuevo Cliente()//el objeto luis nace con los atributos del constructor sin parametros
+	luis.cuenta_cliente = nuevo CuentaBancaria()//el objeto c_luis nace con los atributos del constructor sin parametros
+	luis.tarjeta_cliente = nuevo TarjetaDeCredito()//el objeto t_luis nace con los atributos del constructor sin parametros
+	luis.registrar_cliente()//invoco el metodo registrar_cliente para asignarle nuevos valores al objeto
+	luis.registrar_instrumento_bancario()//invoco el metodo registrar instrumento bancario sin parametros para que me asigne los valores definidos del metodo sobrecargado sin parametros
+
+	usuario="jorgelgs21"
+	contraceÃ±a="12345678"
+	jorge = nuevo Cliente(usuario, contraceÃ±a, "Jorge", "Guanipa",18332410, "Urb. Prados Del Golf casa 4-10", 04145131756)//cliente_2 nace con los atributos asignados por los parametros
+	sald= 250000
+	jorge.cuenta_cliente = nuevo CuentaBancaria("Ahorro", 01341234432156743244, sald)//invoco el metodo para registrar una cuenta ya que envio 3 parametros
+	disponible= 6700
+	deudor= 3300
+	jorge.tarjeta_cliente = nuevo TarjetaDeCredito("MASTERCARD", 4540332255762341, disponible, deudor)//invoco el metodo para registrar una tarjeta ya que le envio 4 parametros
+	
+	// Ciclo con condicional para el objeto Luis
+	Repetir
+		Mostrar"Hola Luis para Ingresar a su Cuenta Deba Validar Su Usuario Y ContraceÃ±a"
+		Mostrar"Ingrese Usuario"
+		Leer validar_usuario
+		Mostrar"Ingrese ContraceÃ±a"
+		Leer validar_contraceÃ±a
+	
+		Si  (validar_usuario <> luis.GetUsuario()) O (validar_usuario <> luis.GetContraceÃ±a()) Entonces
+			Mostrar"Lo Siento Ingreso Un Dato Incorrecto"
+			dato_errado = true
+		SiNo
+			luis.mostrar_datos()  
+			dato_errado = false
+		FinSi
+	Hasta dato_errado== false
+
+,
+	// Ciclo con condicional para el objeto jorge
+	Repetir
+		Mostrar"Hola Jorge para Ingresar a su Cuenta Deba Validar Su Usuario Y ContraceÃ±a"
+		Mostrar"Ingrese Usuario"
+		Leer validar_usuario
+		Mostrar"Ingrese ContraceÃ±a"
+		Leer validar_contraceÃ±a
+	
+		Si  (validar_usuario <> jorge.GetUsuario()) O (validar_usuario <> jorge.GetContraceÃ±a()) Entonces
+			Mostrar"Lo Siento Ingreso Un Dato Incorrecto"
+			dato_errado = true
+		SiNo
+			luis.mostrar_datos()
+			dato_errado = false
+		FinSi
+	Hasta dato_errado== false
+
+Fin algoritmo
+
